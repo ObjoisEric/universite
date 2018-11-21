@@ -1,12 +1,5 @@
 package fr.objois.universite.note.business.impl;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import fr.objois.universite.etudiant.business.IEtudiantBusiness;
 import fr.objois.universite.etudiant.domain.Etudiant;
 import fr.objois.universite.matiere.business.IMatiereBusiness;
@@ -15,6 +8,11 @@ import fr.objois.universite.note.business.INoteBusiness;
 import fr.objois.universite.note.domain.Note;
 import fr.objois.universite.note.domain.NotePrimaryKey;
 import fr.objois.universite.note.repository.INoteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Iterator;
+import java.util.List;
 
 @Service
 public class NoteBusinessImpl implements INoteBusiness{
@@ -92,19 +90,16 @@ public class NoteBusinessImpl implements INoteBusiness{
 				etudiant.setNotes(listNote);
 			}
 		}
+
+
 		return listEtudiantDiff;
 	}
 
 
 	private List<Note> getNoteInfDix(List<Note> notes) {
 
-		for (Iterator<Note> iterator = notes.iterator(); iterator.hasNext();) {
-			Note note = iterator.next();
-			if (note.getNote() >= 10) {
-				iterator.remove();
-			}			
-		}
-		
+		notes.removeIf((Note note) -> note.getNote() >= 10);
+
 		return notes;
 	}
 
