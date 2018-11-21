@@ -20,23 +20,20 @@ public class MatiereBusinessImpl implements IMatiereBusiness {
 
 	@Override
 	public List<Matiere> getAllMatiere() {
-		List<Matiere> listeMatiere = matiereRepository.findAll();
-		return listeMatiere;
+		return matiereRepository.findAll();
 	}
 
 	@Override
 	public Matiere getDetailMatiere(Integer id) {
-		Matiere detailMatiere = matiereRepository.getOne(id);
-		
-		return detailMatiere;
+
+		return matiereRepository.getOne(id);
 	}
 
 
 
 	@Override
 	public List<Enseignant> qetAllEnseignant() {
-		List<Enseignant> listeEnseignant = enseignantBusiness.getAllEnseignant();
-		return listeEnseignant;
+		return enseignantBusiness.getAllEnseignant();
 	}
 
 	@Override

@@ -22,8 +22,8 @@ public class EnseignantBusinessImpl implements IEnseignantBusiness {
 
 	@Override
 	public Enseignant getEnseignantDetail(Integer id) {
-		Enseignant enseignantDetail = enseignantRepository.getOne(id);
-		return enseignantDetail;
+
+		return enseignantRepository.getOne(id);
 	}
 
 	@Override

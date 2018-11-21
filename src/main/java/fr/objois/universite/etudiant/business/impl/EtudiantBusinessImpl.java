@@ -21,16 +21,14 @@ public class EtudiantBusinessImpl implements IEtudiantBusiness{
 
 	@Override
 	public List<Etudiant> getAllEtudiant() {
-		List<Etudiant> listeEtudiant = etudiantRepository.findAll();
-		
-		return listeEtudiant;
+
+		return etudiantRepository.findAll();
 	}
 
 	@Override
 	public Etudiant getDetailEtudiant(Integer id) {
-		Etudiant detailEtudiant = etudiantRepository.getOne(id);
-		
-		return detailEtudiant;
+
+		return etudiantRepository.getOne(id);
 	}
 
 	@Override
@@ -44,15 +42,14 @@ public class EtudiantBusinessImpl implements IEtudiantBusiness{
 		Etudiant vraiEtudiant = etudiantRepository.getOne(etudiant.getId());
 		vraiEtudiant.setNom(etudiant.getNom());
 		vraiEtudiant.setPrenom(etudiant.getPrenom());
-		
+
 		etudiantRepository.save(vraiEtudiant);
 	}
 
 	@Override
 	public List<Note> getNoteInfdixEtudiant(Integer id) {		
 		
-		List<Note> NoteInfdixEtudiant = noteRepository.findByEtudiantIdAndNoteLessThan(id, 10.0);
- 		return NoteInfdixEtudiant;
+ 		return noteRepository.findByEtudiantIdAndNoteLessThan(id, 10.0);
 	}
 
 

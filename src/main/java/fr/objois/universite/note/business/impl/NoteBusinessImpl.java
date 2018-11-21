@@ -29,15 +29,13 @@ public class NoteBusinessImpl implements INoteBusiness{
 
 	@Override
 	public List<Note> getAllNotes() {
-		List<Note> listeNote = noteRepository.findAll();
-		return listeNote;
+		return noteRepository.findAll();
 	}
 
 
 	@Override
 	public Matiere getMatiere(Integer id) {
-		Matiere matiere = matiereBusiness.getDetailMatiere(id);
-		return matiere;
+		return matiereBusiness.getDetailMatiere(id);
 	}
 	
 
@@ -45,16 +43,14 @@ public class NoteBusinessImpl implements INoteBusiness{
 	@Override
 	public List<Matiere> getAllMatiere() {
 		
-		List<Matiere> listeMatiere = matiereBusiness.getAllMatiere();
-		
-		return listeMatiere;
+
+		return matiereBusiness.getAllMatiere();
 	}
 
 
 	@Override
 	public List<Etudiant> getAllEtudiant() {
-		List<Etudiant> listeEtudiant = etudiantBusiness.getAllEtudiant();
-		return listeEtudiant;
+		return etudiantBusiness.getAllEtudiant();
 	}
 
 
@@ -79,19 +75,18 @@ public class NoteBusinessImpl implements INoteBusiness{
 	@Override
 	public List<Etudiant> getEtudiantDiff() {
 		List<Etudiant> listEtudiantDiff = etudiantBusiness.getAllEtudiant();
-		listEtudiantDiff = getEtudiantInfDix(listEtudiantDiff);	
-		
+
 	
-		return listEtudiantDiff;
+		return getEtudiantInfDix(listEtudiantDiff);
 	}
 
 
 	private List<Etudiant> getEtudiantInfDix(List<Etudiant> listEtudiantDiff) {
 		for (Iterator<Etudiant> iterator = listEtudiantDiff.iterator(); iterator.hasNext();) {
-			Etudiant etudiant = (Etudiant) iterator.next();			
+			Etudiant etudiant = iterator.next();
 			List<Note> listNote = getNoteInfDix(etudiant.getNotes());
 			
-			if (listNote.size() == 0) {
+			if (listNote.isEmpty()) {
 				iterator.remove();
 			}else {
 				etudiant.setNotes(listNote);
@@ -102,9 +97,9 @@ public class NoteBusinessImpl implements INoteBusiness{
 
 
 	private List<Note> getNoteInfDix(List<Note> notes) {
-		
+
 		for (Iterator<Note> iterator = notes.iterator(); iterator.hasNext();) {
-			Note note = (Note) iterator.next();
+			Note note = iterator.next();
 			if (note.getNote() >= 10) {
 				iterator.remove();
 			}			
@@ -112,7 +107,7 @@ public class NoteBusinessImpl implements INoteBusiness{
 		
 		return notes;
 	}
-	
+
 	
 
 }
