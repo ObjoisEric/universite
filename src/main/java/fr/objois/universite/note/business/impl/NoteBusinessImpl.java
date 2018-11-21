@@ -90,7 +90,7 @@ public class NoteBusinessImpl implements INoteBusiness{
 				iterator.remove();
 			}else {
 				etudiant.setNotes(listNote);
-			}		
+			}
 		}
 		return listEtudiantDiff;
 	}
