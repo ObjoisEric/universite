@@ -16,8 +16,8 @@ public class EnseignantBusinessImpl implements IEnseignantBusiness {
 
 	@Override
 	public List<Enseignant> getAllEnseignant() {
-		List<Enseignant> listEnseignant = enseignantRepository.findAll();
-		return listEnseignant;
+
+		return enseignantRepository.findAll();
 	}
 
 	@Override
