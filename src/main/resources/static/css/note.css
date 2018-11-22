@@ -1,19 +1,14 @@
 @charset "ISO-8859-1";
 body,html{
-	
 	margin : 0;
-	size:100%;
-	font-size: 30px;
+	font-size: 32px;
 	background: #C8CDC8;
 }
 tr,th,td,table{
 	border: green 2px solid;
 	border-collapse: collapse;
 	margin:auto;
-
-   
 }
-
 .blocFormulaire{
     text-align: center;
     margin: auto;
@@ -28,12 +23,11 @@ tr,th,td,table{
 }
 .blocValeur{
     text-align: left;
-    margin-top:1%; 
+    margin-top:1%;
 }
-.alpha {
-	background: #AEF7FD; 	
+tr:nth-child(odd){
+    background: #AEF7FD;
 }
-.beta{	
-	background: #2CC0D0; 	
-
+tr:nth-child(even){
+    background: #2CC0D0;
 }

@@ -1,8 +1,6 @@
 @charset "ISO-8859-1";
 body,html{
-	
 	margin : 0;
-	size:100%;
 	font-size: 32px;
 	background: #C8CDC8;
 }
@@ -10,10 +8,7 @@ tr,th,td,table{
 	border: blue 2px solid;
 	border-collapse: collapse;
 	margin:auto;
-
-   
 }
-
 .blocFormulaire{
     text-align: center;
     margin: auto;
@@ -34,6 +29,5 @@ tr,th,td,table{
 	background: #99C5EF; 	
 }
 .beta{	
-	background: #517A9F; 	
-
+	background: #517A9F;
 }

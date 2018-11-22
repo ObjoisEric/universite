@@ -1,33 +1,23 @@
 @charset "ISO-8859-1";
 body,html{
 	margin : 0;
-	size:100%;
 	font-size: 32px;
 	background: #C8CDC8;
 }
 tr,th,td,table{
-	border: purple 2px solid;
+	border: green 2px solid;
 	border-collapse: collapse;
-	margin:auto;   
+	margin:auto;
 }
-.ajoutEnseignant{
-	width: fit-content;
-	background-color: green;
-	margin: auto;
-	text-align: left;
-	
-	
-}
-
 .blocFormulaire{
     text-align: center;
     margin: auto;
     width: fit-content;
 }
 [type="text"],[type="date"],select{
-    background: #FACBF0;  
+    background: #CFF2CC;  
     width: 100%;
-    border:1px solid #E21CBB;
+    border:1px solid #279323;
     border-radius: 3px;
     margin-top:1%; 
 }
@@ -35,11 +25,16 @@ tr,th,td,table{
     text-align: left;
     margin-top:1%; 
 }
-
 .alpha {
-	background: #FACBF0; 	
+	background: #CFF2CC; 	
 }
 .beta{	
-	background: #DBA1CE; 	
-
+	background: #558F50;
+}
+h1{
+	text-align: center;
+}
+.unorderedList{
+	width: fit-content;
+	margin: auto;
 }

@@ -22,7 +22,7 @@
 			</ul>
 		</div>		
 		<div>
-			<table >
+			<table th:if="${!detailEtudiant.notes.isEmpty()}">
 				<tr th:class="beta">
 					<th >matiere</th>
 					<th>note</th>
@@ -35,7 +35,7 @@
 		</div>
 
 		<div>
-			<table>
+			<table th:if="${!noteInfdixEtudiant.isEmpty()}">
 				<tr th:class="beta">
 					<th>matiere</th>
 					<th>note</th>
