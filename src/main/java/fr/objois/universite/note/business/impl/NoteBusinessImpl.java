@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 public class NoteBusinessImpl implements INoteBusiness{
 	
-	
+	public static final Double CONSTANTE_15 = 15.0;
 	@Autowired
 	INoteRepository noteRepository;
 	@Autowired
@@ -150,7 +150,7 @@ public class NoteBusinessImpl implements INoteBusiness{
 
 	private Double getNoteParPage() {
 
-		return 15.0;
+		return CONSTANTE_15;
 	}
 
 
