@@ -6,7 +6,7 @@ import fr.objois.universite.note.domain.Note;
 
 public interface INoteController {
 	
-	public String afficherAllNotes(Model model);
+	public String afficherAllNotes(Model model, Integer page);
 	
 	public String afficherNoteMatiere(Model model, Integer id);
 	

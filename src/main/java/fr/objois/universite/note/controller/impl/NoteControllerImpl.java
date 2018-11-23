@@ -1,5 +1,6 @@
 package fr.objois.universite.note.controller.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,19 @@ public class NoteControllerImpl implements INoteController {
 
 	@Override
 	@RequestMapping("/notes")
-	public String afficherAllNotes(Model model) {
-		
-		List<Note> listeNote = noteBusiness.getAllNotes();
-		
+	public String afficherAllNotes(Model model, Integer page) {
+
+
+
+
+
+		List<Note> listeNote = noteBusiness.getNotePage(page);
 		model.addAttribute("listeNote",listeNote);
-		
+
+		Integer nbrPage = noteBusiness.getNbrPage();
+		model.addAttribute("nbrPage", nbrPage);
+
+
 		return "note/notes";
 	}
 
@@ -76,7 +84,7 @@ public class NoteControllerImpl implements INoteController {
 		noteBusiness.ajouterNote(note,idMatiere,idEtudiant);
 		
 	
-		return "redirect:/notes";
+		return "redirect:/notes?page=1";
 	}
 
 	@Override

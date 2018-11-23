@@ -11,6 +11,7 @@ import fr.objois.universite.note.repository.INoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -83,7 +84,7 @@ public class NoteBusinessImpl implements INoteBusiness{
 		for (Iterator<Etudiant> iterator = listEtudiantDiff.iterator(); iterator.hasNext();) {
 			Etudiant etudiant = iterator.next();
 			List<Note> listNote = getNoteInfDix(etudiant.getNotes());
-			
+
 			if (listNote.isEmpty()) {
 				iterator.remove();
 			}else {
@@ -103,6 +104,58 @@ public class NoteBusinessImpl implements INoteBusiness{
 		return notes;
 	}
 
-	
+	@Override
+	public Integer getNbrPage() {
+		Integer nbrPage = (int) (Math.ceil(getAllNotes().size()/getNoteParPage()));;
+		return nbrPage;
+	}
+
+	@Override
+	public List<Note> getNotePage(Integer page) {
+		List<Note> listeAllNote = getAllNotes();
+		List<Note> listeNote = new ArrayList<>();
+		Integer debutPage =  getDebutPage(page);
+		Integer finPage = getFinPage(page);
+		int i = debutPage;
+
+
+		for (Iterator<Note> iterator = listeAllNote.listIterator(i); iterator.hasNext();) {
+			iterator.next();
+
+			if(i >= finPage){
+				break;
+			}
+			listeNote.add(listeAllNote.get(i));
+			i++;
+		}
+//		for (int i = debutPage ; (i < finPage) || (listeAllNote.get(i-1) == null); i++) {
+//				listeNote.add(listeAllNote.get(i));
+//		}
+
+		return listeNote;
+	}
+
+
+	private Integer getDebutPage(Integer page) {
+		Integer debutPage = (int)((getNoteParPage()*page) - getNoteParPage());
+
+
+		return debutPage;
+	}
+
+
+	private Integer getFinPage(Integer page) {
+		Integer finPage = (int)((getNoteParPage()*page)-1.0);
+
+
+		return finPage;
+	}
+
+	private Double getNoteParPage() {
+		Double noteParPage = 15.0;
+		return noteParPage;
+	}
+
+
 
 }

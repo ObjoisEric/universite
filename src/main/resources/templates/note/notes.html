@@ -9,6 +9,10 @@
 <body>
 	<header th:insert="@{ressource/headerNav}"></header>
 	<div>
+		<div>
+			<input type="button" onclick="location.href='ajouterNote';" value="ajouter une note" class="lien"/>
+			<input type="button" onclick="location.href='notesDiff';" value="eleve en difficulte" class="lien"/>
+		</div>
 		<table>
 			<tr th:class="beta">
 				<th>etudiant</th>				
@@ -23,8 +27,9 @@
 		</table>
 	</div>
 	<div>
-		<input type="button" onclick="location.href='ajouterNote';" value="ajouter une note" class="lien"/>
-		<input type="button" onclick="location.href='notesDiff';" value="eleve en difficulte" class="lien"/>
+		<a th:each="nbrPage : ${#numbers.sequence( 1, nbrPage)}" th:text="${nbrPage}" th:href="@{notes(page=${nbrPage})}"></a>
+
+
 	</div>
 	<script type="text/javascript" th:src="@{js/notes.js}"></script>
 </body>

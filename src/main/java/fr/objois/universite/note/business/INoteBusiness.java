@@ -22,7 +22,10 @@ public interface INoteBusiness {
 
 	public void ajouterNote(Note note, Integer idMatiere, Integer idEtudiant);
 
-
 	public List<Etudiant> getEtudiantDiff();
+
+	public List<Note> getNotePage(Integer page);
+
+	public Integer getNbrPage();
 
 }
