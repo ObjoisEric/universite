@@ -1,8 +1,10 @@
 package fr.objois.universite.note.controller.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import fr.objois.universite.etudiant.domain.Etudiant;
+import fr.objois.universite.matiere.domain.Matiere;
+import fr.objois.universite.note.business.INoteBusiness;
+import fr.objois.universite.note.controller.INoteController;
+import fr.objois.universite.note.domain.Note;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,11 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import fr.objois.universite.etudiant.domain.Etudiant;
-import fr.objois.universite.matiere.domain.Matiere;
-import fr.objois.universite.note.business.INoteBusiness;
-import fr.objois.universite.note.controller.INoteController;
-import fr.objois.universite.note.domain.Note;
+import java.util.List;
 
 
 @Controller

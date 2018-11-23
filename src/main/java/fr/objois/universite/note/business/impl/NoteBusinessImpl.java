@@ -106,8 +106,8 @@ public class NoteBusinessImpl implements INoteBusiness{
 
 	@Override
 	public Integer getNbrPage() {
-		Integer nbrPage = (int) (Math.ceil(getAllNotes().size()/getNoteParPage()));;
-		return nbrPage;
+
+		return (int) (Math.ceil(getAllNotes().size()/getNoteParPage()));
 	}
 
 	@Override
@@ -128,32 +128,29 @@ public class NoteBusinessImpl implements INoteBusiness{
 			listeNote.add(listeAllNote.get(i));
 			i++;
 		}
-//		for (int i = debutPage ; (i < finPage) || (listeAllNote.get(i-1) == null); i++) {
-//				listeNote.add(listeAllNote.get(i));
-//		}
+
 
 		return listeNote;
 	}
 
 
 	private Integer getDebutPage(Integer page) {
-		Integer debutPage = (int)((getNoteParPage()*page) - getNoteParPage());
 
 
-		return debutPage;
+
+		return (int)((getNoteParPage()*page) - getNoteParPage());
 	}
 
 
 	private Integer getFinPage(Integer page) {
-		Integer finPage = (int)((getNoteParPage()*page)-1.0);
 
 
-		return finPage;
+		return (int)((getNoteParPage()*page)-1.0);
 	}
 
 	private Double getNoteParPage() {
-		Double noteParPage = 15.0;
-		return noteParPage;
+
+		return 15.0;
 	}
 
 
